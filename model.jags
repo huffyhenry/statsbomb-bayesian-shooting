@@ -1,0 +1,33 @@
+model {
+    for (i in 1:total_shots){
+        linpred[i] <- d*distance[i] + a*cosangle[i] +
+            hd*head[i] + tb*throughball[i] + cr*cross[i] +
+            fb*fast_break[i] + bc*big_chance[i] +
+            op*open_play[i] + fk*freekick[i] + df*difficult[i] +
+            player[player_id[i]] + league[league_id[i]] +
+            intercept
+        goal[i] ~ dbern(1 / (1 + exp(-linpred[i])))
+    }
+
+    # Non-committal 0-centered normal prior for the players and leagues
+    sigma <- 0.25
+    for (i in 1:total_players){
+       player[i] ~ dnorm(0, 1/(sigma * sigma))
+    }
+    for (i in 1:total_leagues){
+       league[i] ~ dnorm(0, 1/(sigma * sigma))
+    }
+
+    # Cauchy prior for the global coefficients
+    d ~ dt(0, 2.5, 1)
+    a ~ dt(0, 2.5, 1)
+    hd ~ dt(0, 2.5, 1)
+    tb ~ dt(0, 2.5, 1)
+    cr ~ dt(0, 2.5, 1)
+    fb ~ dt(0, 2.5, 1)
+    bc ~ dt(0, 2.5, 1)
+    op ~ dt(0, 2.5, 1)
+    fk ~ dt(0, 2.5, 1)
+    df ~ dt(0, 2.5, 1)
+    intercept ~ dt(0, 2.5, 1)
+}
