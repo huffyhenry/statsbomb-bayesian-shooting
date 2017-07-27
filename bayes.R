@@ -22,7 +22,7 @@ fit.bayes <- function(data, samples.file="samples.out"){
     player_id=data$player_id,
     league_id=data$league_id,
     total_shots=nrow(data),
-    total_players=max(data$plyer_id),
+    total_players=max(data$player_id),
     total_leagues=max(data$league_id)
   )
 
