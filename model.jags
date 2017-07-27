@@ -9,8 +9,8 @@ model {
         goal[i] ~ dbern(1 / (1 + exp(-linpred[i])))
     }
 
-    # Non-committal 0-centered normal prior for the players and leagues
-    sigma <- 0.25
+    # Narrow, 0-centered normal prior for the players and leagues
+    sigma <- 0.1
     for (i in 1:total_players){
        player[i] ~ dnorm(0, 1/(sigma * sigma))
     }
