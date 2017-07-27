@@ -1,0 +1,11 @@
+.Rproj.user
+.Rhistory
+.idea
+*.Rproj
+*.csv
+*.RDS
+*.out
+*.png
+dbconfig.R
+run.gamm.R
+DBDA2E-utilities.R
