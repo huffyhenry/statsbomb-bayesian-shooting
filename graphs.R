@@ -14,8 +14,10 @@ top.n.plot <- function(ratings, n=50){
     geom_point(size=1.5) +
     geom_errorbarh(aes(xmin=low75, xmax=high75), size=0.25) +
     geom_vline(aes(xintercept=0), linetype='dotted') +
-    ggtitle(sprintf("The top %d finishers", n)) +
-    labs(x="Player rating w/ 75% CI", y="Player name w/ prob. of being above-average finisher") +
+    labs(
+      x="Player rating w/ 75% confidence interval",
+      y="Player name w/ probability of being above-average"
+    ) +
     theme(
       text=element_text(family='Palatino'),
       panel.grid.major.y=element_blank(),

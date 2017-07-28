@@ -60,7 +60,7 @@ extract.bayes.fit.summary <- function(samples){
     )
     ratings <- rbind(ratings, record)
   }
-  colnames(ratings) <- c("player_id", "low95", "mode", "high", "prob", "low75", "high75")
+  colnames(ratings) <- c("player_id", "low95", "mode", "high95", "prob", "low75", "high75")
 
   return(ratings)
 }
