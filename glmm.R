@@ -24,7 +24,7 @@ fit.glmm <- function(data){
   return(model)
 }
 
-extract.glmm.fit.summary(model){
+extract.glmm.fit.summary <- function(model){
   # Extract random effect estimates with posterior variance
   eff <- ranef(model, condVar=TRUE)
   var <- attr(eff[[1]], "postVar")
