@@ -39,4 +39,13 @@ probabilities.plot <- function(ratings, top.n=40, bottom.n=10){
     coord_flip()
 }
 
+model.comparison.plot <- function(ratings1, ratings2){
+  graph.data <- merge(ratings1, ratings2, by="player_id")
+  print(colnames(graph.data))
+
+  print(cor(graph.data$mode.x, graph.data$mode.y))
+
+  ggplot(graph.data) + geom_point(aes(x=mode.x, y=mode.y))
+}
+
 
