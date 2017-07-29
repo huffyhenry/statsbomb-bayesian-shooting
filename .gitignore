@@ -3,6 +3,7 @@
 .idea
 *.Rproj
 *.csv
+!sample.csv
 *.RDS
 *.out
 *.png
