@@ -21,7 +21,7 @@ def wrangle(raw_data_file, outfile=None, leagues=BIG5):
     # Transform to polar(ish) coordinates
     raw['x'] = 1.05 * raw['x']
     raw['y'] = 0.68 * raw['y']
-    raw['distance'] = np.sqrt((150.0 - raw['x'])**2 + (raw['y'] - 34.0)**2)
+    raw['distance'] = np.sqrt((105.0 - raw['x'])**2 + (raw['y'] - 34.0)**2)
     raw['ldist'] = np.sqrt((105.0 - raw['x'])**2 + (raw['y'] - 0.68 * 45.2)**2)
     raw['rdist'] = np.sqrt((105.0 - raw['x'])**2 + (raw['y'] - 0.68 * 54.8)**2)
     raw['cosangle'] = (raw['ldist']**2 + raw['rdist']**2 - (0.68 * 9.6)**2)\
